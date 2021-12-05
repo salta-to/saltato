@@ -24,16 +24,16 @@
 <script>
 	document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 </script>
-<a href="#primary" class="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'saltato' ); ?></a>
+<a href="#main-content" class="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'saltato' ); ?></a>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
 	<header class="govuk-header " role="banner" data-module="govuk-header">
 		<div class="govuk-header__container govuk-width-container">
 			<div class="govuk-header__logo">
-			<a href="/" class="govuk-header__link govuk-header__link--homepage">
 				<span class="govuk-header__logotype">
 				<?php the_custom_logo(); ?>
+				</span>
 				<span class="govuk-header__logotype-text">
 					<?php
 					if ( is_front_page() && is_home() ) :
@@ -46,7 +46,6 @@
 						<?php
 					endif;
 					?>
-				</span>
 				</span>
 			</a>
 			</div>

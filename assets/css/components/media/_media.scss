@@ -11,3 +11,22 @@
 .custom-logo-link {
 	display: inline-block;
 }
+
+.custom-logo {
+	max-width: 80px;
+}
+
+.govuk-header__logo {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.site-title a,
+.site-title a:link,
+.site-title a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+.site-title a:hover {
+	text-decoration: underline;
+}
