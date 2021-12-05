@@ -1,6 +1,6 @@
 <?php
 /**
- * saltato Theme Customizer
+ * The saltato Theme Customizer
  *
  * @package saltato
  */
@@ -52,10 +52,3 @@ function saltato_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function saltato_customize_preview_js() {
-	wp_enqueue_script( 'saltato-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), SALTATO_VERSION, true );
-}
-add_action( 'customize_preview_init', 'saltato_customize_preview_js' );
