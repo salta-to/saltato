@@ -1,46 +1,52 @@
 {
-  "name": "underscores",
-  "version": "1.0.0",
-  "description": "Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.",
-  "author": "Automattic Theme Team",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "WordPress",
-    "Theme"
-  ],
-  "homepage": "https://github.com/Automattic/_s#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Automattic/_s.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Automattic/_s/issues"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^12.1.0",
-    "dir-archiver": "^1.1.1",
-    "node-sass": "^4.14.1",
-    "rtlcss": "^2.5.0"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
-  },
-  "scripts": {
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
-  }
+	"name": "saltato",
+	"version": "1.0.0",
+	"description": "A starter theme called saltato.",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"theme"
+	],
+	"homepage": "https://github.com/salta-to/wp-theme-saltato",
+	"authors": [
+		{
+			"name": "Joop Laan",
+			"homepage": "https://www.jooplaan.com/"
+		}
+	],
+	"type": "wordpress-theme",
+	"config": {
+		"platform": {
+			"php": ">=7.1"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:salta-to/wp-theme-saltato.git"
+	},
+	"bugs": {
+		"url": "https://github.com/salta-to/wp-theme-saltato/issues"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+		"wptrt/wpthemereview": "^0.2.1",
+		"php-parallel-lint/php-parallel-lint": "^1.2.0",
+		"wp-cli/i18n-command": "^2.2.5"
+	},
+	"devDependencies": {
+		"async": "^3.2.2",
+		"grunt": "^1.4.1",
+		"grunt-cli": "^1.4.3",
+		"grunt-contrib-clean": "^2.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-jshint": "^3.1.1",
+		"grunt-contrib-nodeunit": "^4.0.0",
+		"grunt-contrib-uglify": "^5.0.1",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-sass": "^3.1.0"
+	},
+	"dependencies": {
+		"govuk-frontend": "^3.14.0",
+		"sass": "^1.44.0"
+	}
 }
