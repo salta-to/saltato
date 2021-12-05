@@ -152,6 +152,16 @@ function saltato_scripts() {
 add_action( 'wp_enqueue_scripts', 'saltato_scripts' );
 
 /**
+ * Add specific CSS class by filter.
+ *
+ * @param array $classes Array with class for body.
+ */
+function saltato_add_govuk_body_class( $classes ) {
+	return array_merge( $classes, array( 'govuk-template__body' ) );
+}
+add_filter( 'body_class', 'saltato_add_govuk_body_class' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

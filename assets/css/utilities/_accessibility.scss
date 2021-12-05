@@ -36,3 +36,7 @@
 #primary[tabindex="-1"]:focus {
 	outline: 0;
 }
+
+a:focus {
+	@include govuk-focused-text;
+}

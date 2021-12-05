@@ -14,9 +14,10 @@
 
 get_header();
 ?>
-
-	<main id="primary" class="site-main">
-
+<div class="govuk-width-container ">
+	<main class="govuk-main-wrapper " id="main-content" role="main">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -30,9 +31,11 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
-	</main><!-- #main -->
-
+			</div><!-- .govuk-grid-column-two-thirds -->
+		<?php get_sidebar(); ?>
+	</div><!-- .govuk-grid-row -->
+	</main><!-- .govuk-width-container -->
+</div><!-- #main -->
 <?php
-get_sidebar();
+
 get_footer();
