@@ -31,21 +31,29 @@
 	<header class="govuk-header " role="banner" data-module="govuk-header">
 		<div class="govuk-header__container govuk-width-container">
 			<div class="govuk-header__logo">
-				<span class="govuk-header__logotype">
-				<?php the_custom_logo(); ?>
-				</span>
+				<a class="link-header-home" href="<?php echo esc_url( home_url() ); ?>">
+				<?php
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				if ( $custom_logo_id ) :
+					$image = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+					?>
+					<span class="govuk-header__logotype">
+						<img class="site-logo" src="<?php echo esc_url( $image[0] ); ?>" alt="" />
+					</span>
+				<?php endif; ?>
 				<span class="govuk-header__logotype-text">
 					<?php
 					if ( is_front_page() && is_home() ) :
 						?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 						<?php
 					else :
 						?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<p class="site-title"><?php bloginfo( 'name' ); ?></p>
 						<?php
 					endif;
 					?>
+				</a>
 				</span>
 			</a>
 			</div>
