@@ -50,6 +50,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 // Import govuk frontend.
+$govuk-assets-path: './node_modules/govuk-frontend/govuk/assets/';
+$govuk-images-path: './node_modules/govuk-frontend/govuk/assets/images/';
+$govuk-fonts-path: './node_modules/govuk-frontend/govuk/assets/fonts/';
 @import "node_modules/govuk-frontend/govuk/all";
 
 // Import variables and mixins.
