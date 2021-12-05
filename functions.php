@@ -1,6 +1,6 @@
 <?php
 /**
- * saltato functions and definitions
+ * The saltato functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -140,10 +140,10 @@ add_action( 'widgets_init', 'saltato_widgets_init' );
  * Enqueue scripts and styles.
  */
 function saltato_scripts() {
-	wp_enqueue_style( 'saltato-style', get_stylesheet_uri(), array(), SALTATO_VERSION );
+	wp_enqueue_style( 'saltato-style', get_template_directory_uri() . '/build/main.min.css', array(), SALTATO_VERSION );
 	wp_style_add_data( 'saltato-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'saltato-navigation', get_template_directory_uri() . '/js/navigation.js', array(), SALTATO_VERSION, true );
+	wp_enqueue_script( 'saltato-js', get_template_directory_uri() . '/build/main.min.js', array( 'jquery' ), SALTATO_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
