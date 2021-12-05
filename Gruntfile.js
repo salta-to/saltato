@@ -30,6 +30,7 @@ module.exports = function (grunt) {
 				outputStyle: 'compressed',
 				sourceMap: true,
 				includePaths: ['node_modules/'],
+				quietDeps: true,
 			},
 			production: {
 				files: {
