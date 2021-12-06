@@ -16,7 +16,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
@@ -59,4 +58,15 @@
 			</div>
 		</div>
 	</header>
-
+	<div class="govuk-width-container">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				<p>Hi</p>
+			</div>
+			<div class="govuk-grid-column-one-third">
+				<div class="bottom search-container">
+					<?php get_search_form(); ?>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -52,3 +52,13 @@ function saltato_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
+/**
+ * Remove the search widget, because a search box is always in the header.
+ */
+add_action(
+	'widgets_init',
+	function () {
+		unregister_widget( 'WP_Widget_Search' );
+	},
+	1
+);
