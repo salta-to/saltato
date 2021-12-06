@@ -61,7 +61,7 @@
 	<div class="govuk-width-container">
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-two-thirds">
-				<p>Hi</p>
+				<p class="govuk-heading-xl"><?php bloginfo( 'description' ); ?></p>
 			</div>
 			<div class="govuk-grid-column-one-third">
 				<div class="bottom search-container">
