@@ -20,7 +20,7 @@
 				printf( esc_html__( 'Proudly powered by %s', 'saltato' ), 'WordPress' );
 				?>
 				</a>
-				<span class="sep"> | </span>
+				<span class="sep">&nbsp;|&nbsp;</span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme ‘%1$s’ by %2$s.', 'saltato' ), 'saltato', '<a href="https://www.jooplaan.com/">Joop Laan</a>' );
