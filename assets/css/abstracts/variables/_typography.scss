@@ -5,3 +5,37 @@ $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+body {
+	@include govuk-font(19);
+	font-weight: 400;
+	text-transform: none;
+	color: $color__text-screen;
+}
+
+//extend
+ul {
+	@extend %govuk-list;
+	@extend %govuk-list--bullet;
+}
+ol {
+	@extend %govuk-list;
+	@extend %govuk-list--number;
+}
+table {
+	@extend %govuk-body-m;
+}
+
+ul {
+//pagination
+	&.list-inline {
+		list-style-type: none;
+		padding-left: 0;
+		li {
+			display: inline-block;
+		}
+	}
+}
+ul.children {
+	margin-top: 0;
+}

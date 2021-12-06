@@ -13,6 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 <div class="govuk-grid-column-one-third">
 	<aside id="secondary" class="widget-area">
+		<h2 class="govuk-heading-m govuk-visually-hidden"><?php esc_html__( 'Related content and links', 'saltato' ); ?></h2>
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</aside><!-- #secondary -->
 </div><!-- .govuk-grid-column-one-third -->

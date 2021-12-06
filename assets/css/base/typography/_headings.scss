@@ -6,3 +6,32 @@ h5,
 h6 {
 	clear: both;
 }
+
+.widget-area .widget {
+	margin-bottom: 30px;
+	border-top: 4px solid #0b0c0c;
+}
+
+.widget-area .widget h3,
+.widget-area
+.widget article.featured h2,
+article.featured .widget-area .widget h2 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+h2{
+	@extend %govuk-heading-l;
+}
+
+h3 {
+	@extend %govuk-heading-m;
+}
+
+h4	{
+	@extend %govuk-heading-s;
+}
+
+h5, h6 {
+	@include govuk-font(16);
+}

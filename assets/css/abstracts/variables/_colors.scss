@@ -5,9 +5,9 @@ $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
+$color__text-screen: $govuk-text-colour;
+$color__text-input: $govuk-text-colour;
+$color__text-input-focus:  $govuk-secondary-text-colour;
 $color__link: $govuk-link-colour;
 $color__link-visited: $govuk-link-visited-colour;
 $color__link-hover:  $govuk-link-hover-colour; //midnightblue
@@ -18,3 +18,28 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+// COLOURS
+// --------------------------------------------------
+
+$greyText:     govuk-colour("dark-grey");
+$greyLight:    govuk-colour("light-grey");
+$blueDark:     govuk-colour("dark-blue");
+$red:          govuk-colour("red");
+$black:        govuk-colour("black");
+$white:        govuk-colour("white");
+$background:   govuk-colour("light-grey");
+$panelColour:  govuk-colour("mid-grey");
+$borderColour: $govuk-border-colour;
+$focusColour:  govuk-colour("yellow");
+$linkColour:   govuk-colour("blue");
+$linkHover:    $govuk-link-hover-colour;
+$blogColour:   govuk-colour("turquoise");
+$alertColour:  govuk-colour("red");
+$buttonColour: govuk-colour("green");
+
+$buttonHover: darken(govuk-colour("green"), 2);
+$buttonBorder: darken(govuk-colour("green"), 5);
+$blogTitleColour: $govuk-secondary-text-colour;
+$placeHolderColour: $govuk-secondary-text-colour;
+$tableHeadCellColour: govuk-colour("light-grey");;
+$tableCellColour: #e1e8e8;
