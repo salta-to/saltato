@@ -24,6 +24,21 @@ module.exports = function (grunt) {
 
 		clean: ['build'],
 
+		shell: {
+			options: {
+				stderr: false
+			},
+			multiple: {
+				command: [
+					'cd assets/css/govuk/core/',
+					'yes | cp -f _typography.scss ../../../../node_modules/govuk-frontend/govuk/core/',
+					'cd ../../../../assets/css/govuk/helpers/',
+					'yes| cp -f _typography.scss ../../../../node_modules/govuk-frontend/govuk/helpers/',
+					'cd ../../../../assets/css/govuk/settings/',
+					'yes| cp -f _typography-font-families.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					].join('&&')
+			},
+		},
 		sass: {
 			options: {
 				implementation: sass,
@@ -38,7 +53,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
 		uglify: {
 			dist: {
 				options: {
@@ -55,7 +69,6 @@ module.exports = function (grunt) {
 				},
 			},
 		},
-
 		copy: {
 			dist: {
 				files: [
@@ -87,6 +100,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch')
 	grunt.loadNpmTasks('grunt-contrib-copy')
 	grunt.loadNpmTasks('grunt-contrib-clean')
+	grunt.loadNpmTasks('grunt-shell')
 
 	grunt.renameTask('watch', '_watch')
 	grunt.registerTask('watch', [
@@ -96,6 +110,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean',
+		'shell:multiple',
 		'copy',
 		'sass',
 		'uglify',
@@ -103,6 +118,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', [
 		'clean',
+		'shell:multiple',
 		'copy',
 		'sass',
 		'uglify',
