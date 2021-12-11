@@ -16,15 +16,21 @@
 /// @type Boolean
 /// @access public
 
-$govuk-use-legacy-palette: if(
-  (
-    $govuk-compatibility-govukfrontendtoolkit or
-    $govuk-compatibility-govuktemplate or
-    $govuk-compatibility-govukelements
-  ),
-  true,
-  false
-) !default;
+///
+///Orginal:
+///
+// $govuk-use-legacy-palette: if(
+//   (
+//     $govuk-compatibility-govukfrontendtoolkit or
+//     $govuk-compatibility-govuktemplate or
+//     $govuk-compatibility-govukelements
+//   ),
+//   true,
+//   false
+// ) !default;
+
+// Use modern palette.
+$govuk-use-legacy-palette: false;
 
 /// Modern colour palette
 ///
