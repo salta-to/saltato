@@ -73,20 +73,11 @@ module.exports = function (grunt) {
 			},
 			multiple: {
 				command: [
+					'echo "## copy saltato govuk setting files to replace orginals"',
 					'cd assets/css/govuk/settings/',
-					'yes| cp -f _all.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _assets.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-applied.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-organisations.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-palette.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _compatibility.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _global-styles.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _ie8.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _links.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _measurements.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _media-queries.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _typography-font-families.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _typography-responsive.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'cp -vf _*.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'echo "## output sass --version"',
+					'sass --version',
 					].join('&&')
 			},
 		},
@@ -94,7 +85,7 @@ module.exports = function (grunt) {
 		_watch: {
 			css: {
 				files: ['assets/css/**/*.scss'],
-				tasks: ['sass'],
+				tasks: ['shell:multiple', 'sass'],
 			},
 			js: {
 				files: ['assets/js/**/*.js'],
