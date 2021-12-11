@@ -24,33 +24,6 @@ module.exports = function (grunt) {
 
 		clean: ['build'],
 
-		shell: {
-			options: {
-				stderr: false
-			},
-			multiple: {
-				command: [
-					'cd assets/css/govuk/core/',
-					'yes | cp -f _typography.scss ../../../../node_modules/govuk-frontend/govuk/core/',
-					'cd ../../../../assets/css/govuk/helpers/',
-					'yes| cp -f _typography.scss ../../../../node_modules/govuk-frontend/govuk/helpers/',
-					'cd ../../../../assets/css/govuk/settings/',
-					'yes| cp -f _all.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _assets.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-applied.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-organisations.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _colours-palette.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _compatibility.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _global-styles.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _ie8.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _links.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _measurements.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _media-queries.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _typography-font-families.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					'yes| cp -f _typography-responsive.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
-					].join('&&')
-			},
-		},
 		sass: {
 			options: {
 				implementation: sass,
@@ -92,6 +65,29 @@ module.exports = function (grunt) {
 						dest: 'build/',
 					},
 				],
+			},
+		},
+		shell: {
+			options: {
+				stderr: false
+			},
+			multiple: {
+				command: [
+					'cd assets/css/govuk/settings/',
+					'yes| cp -f _all.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _assets.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _colours-applied.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _colours-organisations.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _colours-palette.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _compatibility.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _global-styles.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _ie8.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _links.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _measurements.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _media-queries.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _typography-font-families.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					'yes| cp -f _typography-responsive.scss ../../../../node_modules/govuk-frontend/govuk/settings/',
+					].join('&&')
 			},
 		},
 
