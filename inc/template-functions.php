@@ -35,3 +35,17 @@ function saltato_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'saltato_pingback_header' );
+
+/**
+ * Change comment form title
+ *
+ * @param array $defaults Array with default values.
+ * @return array
+ */
+function saltato_custom_comment_title( $defaults ) {
+	$defaults['title_reply']          = __( 'Share your feedback', 'saltato' );
+	$defaults['comment_notes_before'] = __( '<p>Community rules on this website:</p> <ol><li>Be kind</li><li>Try to be brief</li><li>Be honest</li></ol>', 'saltato' );
+
+	return $defaults;
+}
+add_filter( 'comment_form_defaults', 'saltato_custom_comment_title', 20 );

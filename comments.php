@@ -70,8 +70,23 @@ if ( post_password_required() ) {
 		endif;
 
 	endif; // Check for have_comments().
-
+	$commenter     = wp_get_current_commenter();
+	$req           = get_option( 'require_name_email' );
+	$consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+	$fields        = array(
+		'author'  => '<div class="govuk-form-group"><fieldset class="govuk-fieldset" aria-describedby="comment-hint"><h4 class="govuk-fieldset__heading">' . esc_html__( 'About you', 'saltato' ) . '</h4></legend><div id="comment-hint" class="govuk-hint">' . esc_html__( 'Your email address will not be published. Required fields are marked *', 'saltato' ) . '</div><p class="comment-form-author"><label class="govuk-label" for="author">' . __( 'Name', 'saltato' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label><input id="author" name="author" class="govuk-input" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" aria-required="true" required /></p>',
+		'email'   => '<p class="comment-form-email"><label class="govuk-label" for="email">' . __( 'Email Address', 'saltato' ) . ( $req ? ' <span class="required">*</span><br/>' : '' ) . '</label><input required id="email" name="email" class="govuk-input" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" aria-required="true" required /></p>',
+		'url'     => '<p class="comment-form-url"><label class="govuk-label" for="url">' . __( 'Your Website', 'saltato' ) . '</label><input id="url" name="url" class="govuk-input" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'cookies' => '<p class="comment-form-cookies-consent"><div class="govuk-checkboxes" data-module="govuk-checkboxes"><div class="govuk-checkboxes__item"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="govuk-checkboxes__input" type="checkbox" value="yes"' . $consent . '><label for="wp-comment-cookies-consent" class="govuk-checkboxes__label">' . __( 'Save my name, email, and website in this browser.', 'saltato' ) . '</label></div></div></p></div></fieldset>',
+	);
+	$comments_args = array(
+		'fields'        => $fields,
+		// Redefine textarea (the comment body).
+		'comment_field' => '<p class="comment-form-comment"><label for="comment" class="govuk-label">' . esc_html__( 'Comment', 'saltato' ) . '</label><textarea id="comment" name="comment" class="govuk-textarea" rows="5" aria-required="true"></textarea></p>',
+		'class_submit'  => 'govuk-button',
+	);
 	comment_form();
+
 	?>
 
 </div><!-- #comments -->
