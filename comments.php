@@ -82,8 +82,9 @@ if ( post_password_required() ) {
 	$comments_args = array(
 		'fields'        => $fields,
 		// Redefine textarea (the comment body).
-		'comment_field' => '<p class="comment-form-comment"><label for="comment" class="govuk-label">' . esc_html__( 'Comment', 'saltato' ) . '</label><textarea id="comment" name="comment" class="govuk-textarea" rows="5" aria-required="true"></textarea></p>',
+		'comment_field' => '<p class="comment-form-comment"><label for="comment" class="govuk-label screen-reader-text">' . esc_html__( 'Comment', 'saltato' ) . '</label><textarea id="comment" name="comment" class="govuk-textarea" rows="5" aria-required="true"></textarea></p>',
 		'class_submit'  => 'govuk-button',
+		'label_submit'  => esc_html__( 'Post comment', 'saltato' ),
 	);
 	comment_form( $comments_args );
 

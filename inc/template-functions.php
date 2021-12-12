@@ -43,8 +43,8 @@ add_action( 'wp_head', 'saltato_pingback_header' );
  * @return array
  */
 function saltato_custom_comment_title( $defaults ) {
-	$defaults['title_reply']          = __( 'Share your feedback', 'saltato' );
-	$defaults['comment_notes_before'] = __( '<p>Community rules on this website:</p> <ol><li>Be kind</li><li>Try to be brief</li><li>Be honest</li></ol>', 'saltato' );
+	$defaults['title_reply']          = __( 'Share your knowledge and experience or ask a question', 'saltato' );
+	$defaults['comment_notes_before'] = '';
 
 	return $defaults;
 }
