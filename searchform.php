@@ -8,10 +8,11 @@
  */
 
 ?>
-<form role="search" method="get" id="searchform" class="form-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<label class="govuk-visually-hidden" for="s">Search for:</label>
-	<div class="search-input-wrapper">
-		<input type="search" value="<?php echo esc_url( get_search_query() ); ?>" name="s" id="s" class="search-query" placeholder="<?php esc_html_e( 'Search', 'saltato' ); ?>">
-		<input type="submit" id="searchsubmit" value="<?php esc_html_e( 'Search', 'saltato' ); ?>" class="btn">
-	</div>
-</form>
+<div class="search" data-module="search">
+	<form action="<?php echo esc_url( home_url( '/' ) ); ?>h" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+
+		<label class="govuk-label search__label" for="search" aria-hidden="true"><?php esc_html_e( 'Search this website', 'saltato' ); ?></label>
+		<input type="text" id="search" name="q" class="govuk-input govuk-!-margin-bottom-0 search__input" aria-controls="search-results" placeholder="<?php esc_html_e( 'Search', 'saltato' ); ?>" value="<?php echo esc_url( get_search_query() ); ?>">
+		<button type="submit" class="search__button"><?php esc_html_e( 'Search', 'saltato' ); ?></button>
+	</form>
+</div>
