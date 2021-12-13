@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The front-page template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -19,7 +19,7 @@
  * @package saltato
  */
 
-get_header();
+get_header( 'front' );
 ?>
 <div class="govuk-width-container ">
 	<main class="govuk-main-wrapper " id="main-content" role="main">
