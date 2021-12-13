@@ -27,7 +27,8 @@
 
 	<header class="govuk-header " role="banner" data-module="govuk-header">
 		<div class="govuk-header__container govuk-width-container">
-			<div class="govuk-header__logo">
+			<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds-from-desktop">
 				<a class="link-header-home" href="<?php echo esc_url( home_url() ); ?>">
 				<?php
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -54,6 +55,12 @@
 				</span>
 			</a>
 			</div>
+			<div class="govuk-grid-column-one-third">
+				<div class="bottom search-container">
+					<?php get_search_form(); ?>
+				</div>
+			</div>
+		</div>
 		</div>
 	</header>
 
@@ -63,8 +70,8 @@
 		<div class="app-width-container govuk-width-container">
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-two-thirds-from-desktop">
-			<h1 class="govuk-heading-xl app-masthead__title">Design your service using GOV.UK styles, components and&nbsp;patterns</h1>
-			<p class="app-masthead__description">Use this design system to make your service consistent with GOV.UK. Learn from the research and experience of other service teams and avoid repeating work that’s already been done.</p>
+			<h1 class="govuk-heading-xl app-masthead__title">Design your website using GOV.UK styles, components and&nbsp;patterns</h1>
+			<p class="app-masthead__description">Use this WordPress theme system to make your website consistent with GOV.UK. Learn from the research and experience of other service teams and avoid repeating work that’s already been done.</p>
 
 			<a href="/get-started/" role="button" draggable="false" class="govuk-button app-button--inverted govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-button--start" data-module="govuk-button">Get started
 		<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
