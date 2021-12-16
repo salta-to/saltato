@@ -12,19 +12,25 @@
 	display: inline-block;
 }
 
-.site-logo {
-	max-width: 80px;
+.govuk-header__logotype {
+	display: inline-block;
+	margin-right: 0;
 }
 
-.link-header-home {
-	display: flex;
-	justify-content: left;
-	align-items: center;
+.govuk-header__product-name {
+	font-size: 24px;
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+.site-logo {
+	max-width: 30px;
 }
 
 .link-header-home,
 .link-header-home:link,
 .link-header-home:visited {
+	font-weight: 700;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -37,11 +43,31 @@
 	color: $govuk-link-active-colour;
 }
 
+.govuk-header__link--homepage {
+	line-height: 1;
+}
+
 .site-title {
-	font-family: "GDS Transport",arial,sans-serif;
-	-webkit-font-smoothing: antialiased;
+	display: inline-block;
 	font-weight: 700;
 	font-size: 30px;
 	line-height: 1;
 	margin: 0;
+}
+
+@include govuk-media-query ($from: desktop) {
+	.govuk-header__logo {
+		width: 33.33%;
+		padding-right: 15px;
+		float: left;
+		vertical-align: top;
+	}
+
+	.app-site-search {
+		margin: 0;
+		margin-top: 0px;
+		margin-top: -5px;
+		float: right;
+	}
+
 }
