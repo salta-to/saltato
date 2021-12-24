@@ -33,7 +33,6 @@
 		</div>
 		</footer>
 </div><!-- #page -->
-
 <?php wp_footer(); ?>
 <script>
 	window.GOVUKFrontend.initAll();

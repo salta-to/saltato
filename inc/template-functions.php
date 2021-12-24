@@ -49,3 +49,4 @@ function saltato_custom_comment_title( $defaults ) {
 	return $defaults;
 }
 add_filter( 'comment_form_defaults', 'saltato_custom_comment_title', 20 );
+
