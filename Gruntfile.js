@@ -50,6 +50,7 @@ module.exports = function (grunt) {
 				files: {
 					'build/main.min.js': [
 						'node_modules/govuk-frontend/govuk/all.js',
+						'assets/js/app.js',
 					],
 				},
 			},

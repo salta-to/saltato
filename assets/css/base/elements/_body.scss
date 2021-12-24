@@ -1,3 +1,8 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
+
+.app-width-container {
+	margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+	margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+}

@@ -20,7 +20,9 @@
 <body <?php body_class(); ?>>
 <script>
 	document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+	document.body.classList.remove("no-js");
 </script>
+
 <a href="#main-content" class="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'saltato' ); ?></a>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
@@ -30,11 +32,24 @@
 				<a class="govuk-header__link govuk-header__link--homepage" href="<?php echo esc_url( home_url() ); ?>">
 					<span class="govuk-header__logotype">
 					<?php
-					$custom_logo_id = get_theme_mod( 'custom_logo' );
-					if ( $custom_logo_id ) :
-						$image = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+					$saltato_custom_logo_id = get_theme_mod( 'custom_logo' );
+					if ( $saltato_custom_logo_id ) :
+						$saltato_custom_logo_image = wp_get_attachment_image_src( $saltato_custom_logo_id, 'full' );
 						?>
-						<img class="site-logo" src="<?php echo esc_url( $image[0] ); ?>" alt="" />
+						<img class="saltato-logo" src="<?php echo esc_url( $saltato_custom_logo_image[0] ); ?>" alt="" />
+					<?php else : ?>
+						<svg aria-hidden="true" focusable="false" class="saltato-logo saltato-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="32" width="32" xml:space="preserve">
+							<style type="text/css">
+								.st0{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+								.st1{fill:none;stroke:#ffffff;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+							</style>
+							<polyline class="st0" points="27,19 27,6 5,6 5,19 "/>
+							<polygon class="st0" points="30,26 2,26 4,22 28,22 "/>
+							<polyline class="st0" points="11,11 8,14 11,17 "/>
+							<polyline class="st0" points="21,11 24,14 21,17 "/>
+							<line class="st0" x1="18" y1="10" x2="14" y2="18"/>
+							<image src="<?php bloginfo( 'template_url' ); ?>/images/saltato-logo-32x32.png" xlink:href="" class="saltato-logo-fallback-image" width="32" height="32"></image>
+						</svg>
 					<?php endif; ?>
 						<span class="govuk-header__logotype-text">
 							<?php
@@ -58,35 +73,43 @@
 			<div class="app-site-search" data-module="app-search">
 				<?php get_search_form(); ?>
 			</div>
+			<div class="app-header-mobile-nav-toggler-wrapper">
+				<button id="app-mobile-nav-toggler" class="govuk-button app-header-mobile-nav-toggler js-app-mobile-nav-toggler" aria-controls="app-mobile-nav" aria-expanded="false"><?php esc_html_e( 'Menu', 'saltato' ); ?></button>
+			</div>
 		</div>
 	</header>
 
-
-	<nav class="app-navigation govuk-clearfix">
-		<ul class="app-navigation__list app-width-container">
-
-			<li class="app-navigation__list-item">
-				<a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link" href="/get-started/" data-topnav="Get started">Get started</a>
-			</li>
-
-			<li class="app-navigation__list-item">
-				<a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link" href="/styles/" data-topnav="Styles">Styles</a>
-			</li>
-
-			<li class="app-navigation__list-item">
-				<a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link" href="/components/" data-topnav="Components">Components</a>
-			</li>
-
-			<li class="app-navigation__list-item app-navigation__list-item--current">
-				<a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link" href="/patterns/" data-topnav="Patterns">Patterns</a>
-			</li>
-
-			<li class="app-navigation__list-item">
-				<a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link" href="/community/" data-topnav="Community">Community</a>
-			</li>
-
-		</ul>
+	<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
+	<nav id="app-mobile-nav" class="app-mobile-nav js-app-mobile-nav" role="navigation" aria-labelledby="app-mobile-navigation-heading" aria-hidden="false">
+		<h2 class="govuk-visually-hidden" id="app-mobile-navigation-heading">Menu</h2>
+		<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'container'      => 'ul',
+					'menu_class'     => 'app-mobile-nav__list',
+					'walker'         => new Saltato_Primary_Menu_Walker(),
+					'is_mobile_menu' => true,
+				)
+			);
+		?>
 	</nav>
+
+	<nav class="app-navigation app-navigation-desktop govuk-clearfix">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'container'      => 'ul',
+						'menu_class'     => 'app-navigation__list app-width-container',
+						'walker'         => new Saltato_Primary_Menu_Walker(),
+						'depth'          => 1,
+						'is_mobile_menu' => false,
+					)
+				);
+			?>
+	</nav>
+	<?php endif; ?>
 
 	<div class="app-masthead">
 		<div class="app-width-container govuk-width-container">

@@ -109,10 +109,10 @@ add_action( 'after_setup_theme', 'saltato_setup' );
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $content_width
+ * @global int $saltato_content_width
  */
 function saltato_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'saltato_content_width', 640 );
+	$GLOBALS['saltato_content_width'] = apply_filters( 'saltato_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'saltato_content_width', 0 );
 
@@ -157,7 +157,7 @@ add_action( 'wp_enqueue_scripts', 'saltato_scripts' );
  * @param array $classes Array with class for body.
  */
 function saltato_add_govuk_body_class( $classes ) {
-	return array_merge( $classes, array( 'govuk-template__body' ) );
+	return array_merge( $classes, array( 'govuk-template__body', 'no-js' ) );
 }
 add_filter( 'body_class', 'saltato_add_govuk_body_class' );
 
@@ -187,4 +187,9 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Load Primary Menu walker class.
+ */
+require get_template_directory() . '/inc/class-saltato-primary-menu-walker.php';
 
