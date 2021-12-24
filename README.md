@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Automattic/saltato.svg?branch=master)](https://travis-ci.org/Automattic/saltato)
-
-saltato
+Saltato
 ===
 
 
@@ -9,7 +7,7 @@ Installation
 
 ### Requirements
 
-`saltato` requires the following dependencies:
+`Saltato` requires the following dependencies:
 
 - [Node.js](https://nodejs.org/)
 - [Composer](https://getcomposer.org/)
