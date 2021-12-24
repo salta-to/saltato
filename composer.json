@@ -1,12 +1,12 @@
 {
-	"name": "salta-to/wp-theme-saltato",
+	"name": "salta-to/saltato",
 	"type": "wordpress-theme",
-	"description": "A starter theme called saltato.",
+	"description": "Use the GOV.UK Design System as Gutenberg blocks.",
 	"keywords": [
 		"WordPress",
 		"Themes"
 	],
-	"homepage": "https://github.com/salta-to/wp-theme-saltato",
+	"homepage": "https://github.com/salta-to/saltato",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 	{
