@@ -5189,7 +5189,7 @@
 					id: "app-site-search__input",
 					cssNamespace: "app-site-search",
 					displayMenu: "overlay",
-					placeholder: "Search Design System",
+					placeholder: "Search",
 					confirmOnBlur: !1,
 					autoselect: !0,
 					source: this.handleSearchQuery.bind(this),

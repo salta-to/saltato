@@ -9,7 +9,7 @@
 
 if ( ! defined( 'SALTATO_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'SALTATO_VERSION', '1.1.2' );
+	define( 'SALTATO_VERSION', '1.2.0' );
 }
 
 if ( ! function_exists( 'saltato_setup' ) ) :

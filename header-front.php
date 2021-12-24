@@ -23,6 +23,119 @@
 	document.body.classList.remove("no-js");
 </script>
 
+<!--[if gte IE 9]><!-->
+<div class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on GOV.UK Design System" hidden data-module="govuk-cookie-banner">
+	<div class="govuk-cookie-banner__message govuk-width-container app-width-container js-cookie-banner-message">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+			<h2 class="govuk-cookie-banner__heading govuk-heading-m">
+				<?php
+				esc_html_e( 'Cookies on', 'saltato' );
+				print ' ';
+				bloginfo( 'name' );
+				?>
+				</h2>
+				<div class="govuk-cookie-banner__content">
+					<p class="govuk-body">
+						<?php esc_html_e( 'We’d like to use analytics cookies so we can understand how you use this website and make improvements.', 'saltato' ); ?>
+					</p>
+					<p class="govuk-body">
+						<?php esc_html_e( 'We also use essential cookies to remember if you’ve accepted analytics cookies.', 'saltato' ); ?>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="govuk-button-group">
+			<button type="button" class="govuk-button js-cookie-banner-accept" data-module="govuk-button">
+				<?php esc_html_e( 'Accept analytics cookies', 'saltato' ); ?>
+			</button>
+			<button type="button" class="govuk-button js-cookie-banner-reject" data-module="govuk-button">
+				<?php esc_html_e( 'Reject analytics cookies', 'saltato' ); ?>
+			</button>
+			<a class="govuk-link" href="/cookies/">
+				<?php esc_html_e( 'View cookies', 'saltato' ); ?>
+			</a>
+		</div>
+	</div>
+	<div class="govuk-cookie-banner__message govuk-width-container js-cookie-banner-confirmation-accept app-width-container" role="alert" hidden>
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-cookie-banner__content">
+					<p class="govuk-body">
+						<?php
+							/* TODO: Make this url configurable */
+							$saltato_cookie_page_link = '/cookies/';
+							/* translators: %s is replaced with the link to the page about cookies. */
+							print sprintf( wp_kses( __( 'You’ve accepted analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', '$saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
+						?>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="govuk-button-group">
+			<button class="govuk-button js-cookie-banner-hide js-cookie-banner-hide--accept" data-module="govuk-button">
+				<?php esc_html_e( 'Hide this message', 'saltato' ); ?>
+			</button>
+		</div>
+	</div>
+	<div class="govuk-cookie-banner__message govuk-width-container js-cookie-banner-confirmation-reject app-width-container" role="alert" hidden>
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				<div class="govuk-cookie-banner__content">
+					<p class="govuk-body">
+						<?php
+							/* TODO: Make this url configurable */
+							$saltato_cookie_page_link = '/cookies/';
+							/* translators: %s is replaced with the link to the page about cookies. */
+							print sprintf( wp_kses( __( 'You’ve rejected analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', '$saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
+						?>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="govuk-button-group">
+			<button class="govuk-button js-cookie-banner-hide js-cookie-banner-hide--reject" data-module="govuk-button">
+				<?php esc_html_e( 'Hide this message', 'saltato' ); ?>
+			</button>
+		</div>
+	</div>
+</div>
+<script>
+/* If cookie policy changes and/or the user preferences object format needs to
+ * change, bump this version up afterwards. The user should then be shown the
+ * banner again to consent to the new policy.
+ *
+ * Note that because isValidCookieConsent checks that the version in the user's
+ * cookie is equal to or greater than this number, you should be careful to
+ * check backwards compatibility when changing the object format.
+ *
+ */
+window.GDS_CONSENT_COOKIE_VERSION = 1;
+(function () {
+	/** Check the cookie preferences object.
+	*
+	* If the consent object is not present, malformed, or incorrect version,
+	* returns false, otherwise returns true.
+	*
+	* This is also duplicated in cookie-functions.js - the two need to be kept in sync
+	*/
+	function isValidConsentCookie (options) {
+		return (options && options.version >= window.GDS_CONSENT_COOKIE_VERSION)
+	}
+
+	// Don't show the banner on the cookies page
+	if (window.location.pathname !== "/cookies/") {
+		// Show the banner if there is no consent cookie or if it is outdated
+		var currentConsentCookie = document.cookie.match(new RegExp('(^| )design_system_cookies_policy=([^;]+)'))
+		if (!currentConsentCookie || !isValidConsentCookie(JSON.parse(currentConsentCookie[2]))) {
+			var cookieBanner = document.querySelector("[data-module='govuk-cookie-banner']")
+			cookieBanner.removeAttribute('hidden')
+		}
+	}
+})()
+</script>
+<!--<![endif]-->
+
 <a href="#main-content" class="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'saltato' ); ?></a>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
@@ -70,11 +183,13 @@
 					</span>
 				</a>
 			</div>
-			<div class="app-site-search" data-module="app-search">
+			<div class="app-site-search">
 				<?php get_search_form(); ?>
 			</div>
 			<div class="app-header-mobile-nav-toggler-wrapper">
-				<button id="app-mobile-nav-toggler" class="govuk-button app-header-mobile-nav-toggler js-app-mobile-nav-toggler" aria-controls="app-mobile-nav" aria-expanded="false"><?php esc_html_e( 'Menu', 'saltato' ); ?></button>
+				<button id="app-mobile-nav-toggler" class="govuk-button app-header-mobile-nav-toggler js-app-mobile-nav-toggler" aria-controls="app-mobile-nav">
+					<?php esc_html_e( 'Menu', 'saltato' ); ?>
+				</button>
 			</div>
 		</div>
 	</header>

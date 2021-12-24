@@ -43,8 +43,16 @@ class Saltato_Primary_Menu_Walker extends Walker_Nav_Menu {
 					$output .= $args->after;
 					$output .= '</div>';
 					break;
+				case 1:
+					$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
+					$output .= $args->before;
+					$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
+					$output .= $title;
+					$output .= '</a>';
+					$output .= $args->after;
+					break;
 				default:
-					$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-navigation__list-item' . $current . '">';
+					$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
 					$output .= $args->before;
 					$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
 					$output .= $title;
@@ -82,7 +90,16 @@ class Saltato_Primary_Menu_Walker extends Walker_Nav_Menu {
 		$indent = str_repeat( $t, $depth );
 
 		// The classes for the <ul>.
-		$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+		switch ( $depth ) {
+			case 0:
+				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+				break;
+			case 1:
+				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'js-app-mobile-nav-subnav' );
+				break;
+			default:
+				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+		}
 
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
