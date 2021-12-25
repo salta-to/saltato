@@ -1,0 +1,115 @@
+{
+	"version": 2,
+	"settings": {
+		"color": {
+			"gradients": [],
+			"customGradient": false,
+			"duotone": [],
+			"customDuotone": false,
+			"defaultPalette": false,
+			"custom": false,
+			"palette": [
+				{
+					"slug": "govuk-red",
+					"color": "#d4351c",
+					"name": "Red"
+				},
+				{
+					"slug": "govuk-yellow",
+					"color": "#ffdd00",
+					"name": "Yellow"
+				},
+				{
+					"slug": "govuk-green",
+					"color": "#00703c",
+					"name": "Green"
+				},
+				{
+					"slug": "govuk-blue",
+					"color": "#1d70b8",
+					"name": "Blue"
+				},
+				{
+					"slug": "govuk-dark-blue",
+					"color": "#003078",
+					"name": "Dark Blue"
+				},
+				{
+					"slug": "govuk-light-blue",
+					"color": "#5694ca",
+					"name": "Light Blue"
+				},
+				{
+					"slug": "govuk-purple",
+					"color": "#4c2c92",
+					"name": "Purple"
+				},
+				{
+					"slug": "govuk-black",
+					"color": "#0b0c0c",
+					"name": "Black"
+				},
+				{
+					"slug": "govuk-dark-grey",
+					"color": "#505a5f",
+					"name": "Dark grey"
+				},
+				{
+					"slug": "govuk-mid-grey",
+					"color": "#b1b4b6",
+					"name": "Mid grey"
+				},
+				{
+					"slug": "govuk-light-grey",
+					"color": "#f3f2f1",
+					"name": "Light grey"
+				},
+				{
+					"slug": "govuk-white",
+					"color": "#ffffff",
+					"name": "White"
+				},
+				{
+					"slug": "govuk-light-purple",
+					"color": "#6f72af",
+					"name": "Light purple"
+				},
+				{
+					"slug": "govuk-bright-purple",
+					"color": "#912b88",
+					"name": "Bright purple"
+				},
+				{
+					"slug": "govuk-pink",
+					"color": "#d53880",
+					"name": "Pink"
+				},
+				{
+					"slug": "govuk-light-pink",
+					"color": "#f499be",
+					"name": "Light pink"
+				},
+				{
+					"slug": "govuk-orange",
+					"color": "#f47738",
+					"name": "Orange"
+				},
+				{
+					"slug": "govuk-brown",
+					"color": "#b58840",
+					"name": "Brown"
+				},
+				{
+					"slug": "govuk-light-green",
+					"color": "#85994b",
+					"name": "Light green"
+				},
+				{
+					"slug": "govuk-turquoise",
+					"color": "#28a197",
+					"name": "Turquoise"
+				}
+			]
+		}
+	}
+}
