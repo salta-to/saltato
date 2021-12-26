@@ -30,9 +30,8 @@
 			<div class="govuk-grid-column-two-thirds">
 			<h2 class="govuk-cookie-banner__heading govuk-heading-m">
 				<?php
-				esc_html_e( 'Cookies on', 'saltato' );
-				print ' ';
-				bloginfo( 'name' );
+				/* translators: %s is replaced with the site name. */
+				printf( esc_html__( 'Cookies on %s', 'saltato' ), esc_html( get_bloginfo( 'name' ) ) );
 				?>
 				</h2>
 				<div class="govuk-cookie-banner__content">
@@ -66,7 +65,7 @@
 							/* TODO: Make this url configurable */
 							$saltato_cookie_page_link = '/cookies/';
 							/* translators: %s is replaced with the link to the page about cookies. */
-							print sprintf( wp_kses( __( 'You’ve accepted analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', '$saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
+							print sprintf( wp_kses( __( 'You’ve accepted analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', 'saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
 						?>
 					</p>
 				</div>
@@ -87,7 +86,7 @@
 							/* TODO: Make this url configurable */
 							$saltato_cookie_page_link = '/cookies/';
 							/* translators: %s is replaced with the link to the page about cookies. */
-							print sprintf( wp_kses( __( 'You’ve rejected analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', '$saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
+							print sprintf( wp_kses( __( 'You’ve rejected analytics cookies. You can <a class="govuk-link" href="%s">change your cookie settings</a> at any time.', 'saltato' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $saltato_cookie_page_link ) );
 						?>
 					</p>
 				</div>
