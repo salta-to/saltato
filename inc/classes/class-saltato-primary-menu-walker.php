@@ -90,16 +90,7 @@ class Saltato_Primary_Menu_Walker extends Walker_Nav_Menu {
 		$indent = str_repeat( $t, $depth );
 
 		// The classes for the <ul>.
-		switch ( $depth ) {
-			case 0:
-				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
-				break;
-			case 1:
-				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'js-app-mobile-nav-subnav' );
-				break;
-			default:
-				$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
-		}
+		$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
 
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
