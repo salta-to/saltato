@@ -51,6 +51,7 @@ if ( ! function_exists( 'saltato_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'saltato' ),
+				'menu-2' => esc_html__( 'Secondary', 'saltato' ),
 			)
 		);
 
@@ -134,7 +135,7 @@ function saltato_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'saltato_widgets_init' );
+// add_action( 'widgets_init', 'saltato_widgets_init' );.
 
 /**
  * Enqueue scripts and styles.
@@ -191,5 +192,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Load Primary Menu walker class.
  */
-require get_template_directory() . '/inc/class-saltato-primary-menu-walker.php';
+require get_template_directory() . '/inc/classes/class-saltato-primary-menu-walker.php';
+
+/**
+ * Load Secondary Menu walker class.
+ */
+require get_template_directory() . '/inc/classes/class-saltato-secondary-menu-walker.php';
 

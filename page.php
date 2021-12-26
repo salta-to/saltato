@@ -17,6 +17,7 @@ get_header();
 <div class="govuk-width-container ">
 	<main class="govuk-main-wrapper " id="main-content" role="main">
 		<div class="govuk-grid-row">
+			<?php get_sidebar(); ?>
 			<div class="govuk-grid-column-two-thirds">
 		<?php
 		while ( have_posts() ) :
@@ -31,7 +32,6 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 			</div><!-- .govuk-grid-column-two-thirds -->
-		<?php get_sidebar(); ?>
 	</div><!-- .govuk-grid-row -->
 	</main><!-- .govuk-width-container -->
 </div><!-- #main -->
