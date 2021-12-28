@@ -125,9 +125,9 @@ add_action( 'after_setup_theme', 'saltato_content_width', 0 );
 function saltato_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'saltato' ),
+			'name'          => esc_html__( 'Sidebar blog', 'saltato' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'saltato' ),
+			'description'   => esc_html__( 'Sidebar for blog posts and blog archive pages. ', 'saltato' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -135,7 +135,7 @@ function saltato_widgets_init() {
 		)
 	);
 }
-// add_action( 'widgets_init', 'saltato_widgets_init' );.
+add_action( 'widgets_init', 'saltato_widgets_init' );
 
 /**
  * Enqueue scripts and styles.

@@ -14,11 +14,9 @@
 
 get_header();
 ?>
-<div class="govuk-width-container ">
-	<main class="govuk-main-wrapper " id="main-content" role="main">
-		<div class="govuk-grid-row">
-			<?php get_sidebar(); ?>
-			<div class="govuk-grid-column-two-thirds">
+<div class="app-pane__body app-width-container">
+	<?php get_sidebar(); ?>
+	<div class="app-pane__content" id="main-content" role="main">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -31,10 +29,8 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-			</div><!-- .govuk-grid-column-two-thirds -->
-	</div><!-- .govuk-grid-row -->
-	</main><!-- .govuk-width-container -->
-</div><!-- #main -->
+	</div><!-- .app-pane__content -->
+</div><!-- .app-pane__body app-width-container -->
 <?php
 
 get_footer();

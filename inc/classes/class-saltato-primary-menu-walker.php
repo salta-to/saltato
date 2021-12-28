@@ -25,39 +25,47 @@ class Saltato_Primary_Menu_Walker extends Walker_Nav_Menu {
 		$title       = $item->title;
 		$description = $item->description;
 		$permalink   = $item->url;
-		$current     = $item->current ? ' app-navigation__list-item--current' : '';
+		if ( $args->is_mobile_menu ) {
+			$current = $item->current ? ' app-mobile-nav__subnav-item--current' : '';
+		} else {
+			$current = $item->current ? ' app-navigation__list-item--current' : '';
+		}
 
 		if ( $args->is_mobile_menu ) {
-			switch ( $depth ) {
-				// Main level.
-				case 0:
-					$output .= '<li class="menu-menu-level-0' . $current . '">';
-					$output .= '<div class="app-mobile-nav-subnav-toggler">';
-					$output .= $args->before;
-					$output .= '<!-- When JavaScript is enabled, the menu links expand a section below with more content, so we should make them headings -->';
-					$output .= '<h3 class="app-mobile-nav-subnav__link-heading"><span class="js-app-mobile-nav-subnav__link-heading">';
-					$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-mobile-nav-subnav-toggler__link">';
-					$output .= $title;
-					$output .= '</a>';
-					$output .= '</span></h3>';
-					$output .= $args->after;
-					$output .= '</div>';
-					break;
-				case 1:
-					$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
-					$output .= $args->before;
-					$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
-					$output .= $title;
-					$output .= '</a>';
-					$output .= $args->after;
-					break;
-				default:
-					$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
-					$output .= $args->before;
-					$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
-					$output .= $title;
-					$output .= '</a>';
-					$output .= $args->after;
+			if ( $permalink && '#' === $permalink ) {
+				$output .= '<li><h3 class="app-mobile-nav__theme">' . $title . '</h3>';
+			} else {
+				switch ( $depth ) {
+					// Main level.
+					case 0:
+						$output .= '<li class="' . $current . '">';
+						$output .= '<div class="app-mobile-nav-subnav-toggler">';
+						$output .= $args->before;
+						$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-mobile-nav-subnav-toggler__link js-mobile-nav-subnav-toggler">';
+						$output .= '<!-- When JavaScript is enabled, the menu links expand a section below with more content, so we should make them headings -->';
+						$output .= '<span class="js-app-mobile-nav-subnav__link-heading">';
+						$output .= $title;
+						$output .= '</span>';
+						$output .= '</a>';
+						$output .= $args->after;
+						$output .= '</div>';
+						break;
+					case 1:
+						$output .= '<li class="menu-menu-level-' . $depth . ' ' . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
+						$output .= $args->before;
+						$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
+						$output .= $title;
+						$output .= '</a>';
+						$output .= $args->after;
+						break;
+					default:
+						$output .= '<li class="menu-menu-level-' . $depth . ' ' . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
+						$output .= $args->before;
+						$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
+						$output .= $title;
+						$output .= '</a>';
+						$output .= $args->after;
+				}
 			}
 		} else {
 			$output .= '<li class="' . implode( ' ', $item->classes ) . ' app-navigation__list-item' . $current . '">';
@@ -90,7 +98,16 @@ class Saltato_Primary_Menu_Walker extends Walker_Nav_Menu {
 		$indent = str_repeat( $t, $depth );
 
 		// The classes for the <ul>.
-		$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+		switch ( $depth ) {
+			case 0:
+				$classes = array( 'app-mobile-nav__list', 'app-mobile-nav__subnav', 'js-app-mobile-nav-subnav' );
+				break;
+			case 1:
+				$classes = array( 'app-mobile-nav__list', 'app-mobile-nav__subnav', 'js-app-mobile-nav-subnav' );
+				break;
+			default:
+				$classes = array( 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+		}
 
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.

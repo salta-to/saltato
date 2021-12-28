@@ -24,7 +24,6 @@ get_header();
 <div class="govuk-width-container ">
 	<main class="govuk-main-wrapper " id="main-content" role="main">
 		<div class="govuk-grid-row">
-			<?php get_sidebar(); ?>
 			<div class="govuk-grid-column-two-thirds">
 			<?php
 			if ( have_posts() ) :
@@ -59,7 +58,10 @@ get_header();
 			endif;
 				?>
 			</div><!-- .govuk-grid-column-two-thirds -->
-	</div><!-- .govuk-grid-row -->
+			<div class="govuk-grid-column-one-third">
+				<?php get_sidebar( 'blog' ); ?>
+			</div>
+		</div><!-- .govuk-grid-row -->
 	</main><!-- .govuk-width-container -->
 </div><!-- #main -->
 <?php

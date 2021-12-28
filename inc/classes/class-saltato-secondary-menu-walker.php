@@ -25,38 +25,37 @@ class Saltato_Secondary_Menu_Walker extends Walker_Nav_Menu {
 		$title       = $item->title;
 		$description = $item->description;
 		$permalink   = $item->url;
-		$current     = $item->current ? ' app-navigation__list-item--current' : '';
+		$current     = $item->current ? ' app-subnav__section--current' : '';
 
-		switch ( $depth ) {
-			// Main level.
-			case 0:
-				$output .= '<li class="menu-menu-level-0' . $current . '">';
-				$output .= '<div class="app-mobile-nav-subnav-toggler">';
-				$output .= $args->before;
-				$output .= '<!-- When JavaScript is enabled, the menu links expand a section below with more content, so we should make them headings -->';
-				$output .= '<h3 class="app-mobile-nav-subnav__link-heading"><span class="js-app-mobile-nav-subnav__link-heading">';
-				$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-mobile-nav-subnav-toggler__link">';
-				$output .= $title;
-				$output .= '</a>';
-				$output .= '</span></h3>';
-				$output .= $args->after;
-				$output .= '</div>';
-				break;
-			case 1:
-				$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
-				$output .= $args->before;
-				$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
-				$output .= $title;
-				$output .= '</a>';
-				$output .= $args->after;
-				break;
-			default:
-				$output .= '<li class="menu-menu-level-' . $depth . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
-				$output .= $args->before;
-				$output .= '<a href="' . $permalink . '" class="govuk-link govuk-link--no-visited-state govuk-link--no-underline app-navigation__link">';
-				$output .= $title;
-				$output .= '</a>';
-				$output .= $args->after;
+		if ( $permalink && '#' === $permalink ) {
+			$output .= '<li><h3 class="app-subnav__theme">' . $title . '</h3>';
+		} else {
+			switch ( $depth ) {
+				// Main level.
+				case 0:
+					$output .= '<li class="menu-menu-level-0' . $current . '">';
+					$output .= $args->before;
+					$output .= '<a href="' . $permalink . '" class="app-subnav__link govuk-link govuk-link--no-visited-state govuk-link--no-underline">';
+					$output .= $title;
+					$output .= '</a>';
+					$output .= $args->after;
+					break;
+				case 1:
+					$output .= '<li class="menu-menu-level-' . $depth . ' ' . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
+					$output .= $args->before;
+					$output .= '<a href="' . $permalink . '" class="app-subnav__link govuk-link govuk-link--no-visited-state govuk-link--no-underline">';
+					$output .= $title;
+					$output .= '</a>';
+					$output .= $args->after;
+					break;
+				default:
+					$output .= '<li class="menu-menu-level-' . $depth . ' ' . implode( ' ', $item->classes ) . ' app-mobile-nav__subnav-item' . $current . '">';
+					$output .= $args->before;
+					$output .= '<a href="' . $permalink . '" class="app-subnav__link govuk-link govuk-link--no-visited-state govuk-link--no-underline">';
+					$output .= $title;
+					$output .= '</a>';
+					$output .= $args->after;
+			}
 		}
 	}
 
@@ -82,7 +81,7 @@ class Saltato_Secondary_Menu_Walker extends Walker_Nav_Menu {
 		$indent = str_repeat( $t, $depth );
 
 		// The classes for the <ul>.
-		$classes = array( 'sub-menu', 'app-mobile-nav__list', 'app-mobile-nav__subnav' );
+		$classes = array( 'app-subnav__section' );
 
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
@@ -98,6 +97,4 @@ class Saltato_Secondary_Menu_Walker extends Walker_Nav_Menu {
 
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
 	}
-
-
 }

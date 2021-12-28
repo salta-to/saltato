@@ -47,7 +47,6 @@ get_header();
 		endif;
 			?>
 			</div><!-- .govuk-grid-column-two-thirds -->
-		<?php get_sidebar(); ?>
 	</div><!-- .govuk-grid-row -->
 	</main><!-- .govuk-width-container -->
 </div><!-- #main -->

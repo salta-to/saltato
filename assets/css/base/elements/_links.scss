@@ -20,3 +20,23 @@ a {
 		outline: 0;
 	}
 }
+
+.govuk-link:hover, .app-pane__content a:hover {
+	text-decoration-thickness: max(3px, .1875rem, .12em);
+	-webkit-text-decoration-skip-ink: none;
+	text-decoration-skip-ink: none;
+	-webkit-text-decoration-skip: none;
+	text-decoration-skip: none;
+	color: $color__link-hover;
+}
+
+.app-navigation__link:hover,
+.app-subnav__link:hover {
+	color: $color__link;
+}
+
+.app-navigation__list-item--current .app-navigation__link:hover,
+.app-navigation__list-item--current .app-subnav__link:hover {
+	text-decoration: none;
+	color: $color__link;
+}
