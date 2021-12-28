@@ -24,7 +24,6 @@ get_header( 'front' );
 <div class="govuk-width-container ">
 	<main class="govuk-main-wrapper " id="main-content" role="main">
 		<div class="govuk-grid-row">
-			<?php get_sidebar(); ?>
 			<div class="govuk-grid-column-two-thirds">
 			<?php
 			if ( have_posts() ) :
