@@ -53,10 +53,10 @@ add_filter( 'comment_form_defaults', 'saltato_custom_comment_title', 20 );
 /**
  * Custom wp_die_handler.
  */
-function get_saltato_die_handler() {
+function saltato_die_handler_function() {
 	return 'saltato_die_handler';
 }
-add_filter( 'wp_die_handler', 'get_saltato_die_handler' );
+add_filter( 'wp_die_handler', 'saltato_die_handler_function' );
 
 /**
  * Custom wp_die handler function
@@ -94,11 +94,11 @@ function saltato_die_handler( $message, $title = '', $args = array() ) {
 			$message = "<p>$message</p>";
 		}
 		if ( isset( $r['back_link'] ) && $r['back_link'] ) {
-			$back_text = $have_gettext ? __( '&laquo; Back' ) : '&laquo; Back';
+			$back_text = $have_gettext ? __( '&laquo; Back', 'saltato' ) : '&laquo; Back';
 			$message .= "\n<p><a href='javascript:history.back()'>$back_text</a></p>";
 		}
 		if ( empty( $title ) ) {
-			$title = $have_gettext ? __( 'WordPress &rsaquo; Error' ) : 'WordPress &rsaquo; Error';
+			$title = $have_gettext ? __( 'WordPress &rsaquo; Error', 'saltato' ) : 'WordPress &rsaquo; Error';
 		}
 		require_once $saltato_error_template;
 		die();
