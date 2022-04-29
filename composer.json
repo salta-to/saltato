@@ -1,6 +1,7 @@
 {
 	"name": "salta-to/saltato",
 	"type": "wordpress-theme",
+	"version": "1.2.1",
 	"description": "Use the GOV.UK Design System as Gutenberg blocks.",
 	"keywords": [
 		"WordPress",
